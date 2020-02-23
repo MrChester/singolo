@@ -102,6 +102,12 @@
   right: 20px;
 }
 
+.prev:hover, .next:hover{
+  transform: scale(1.2, 1.2);
+  transition: ease-out 550ms;
+  cursor: pointer;
+}
+
 .vertical_shape {
   transform: rotate(90deg);
   top: 181px;
