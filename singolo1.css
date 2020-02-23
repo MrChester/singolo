@@ -58,7 +58,7 @@
   color: #ffffff;
 }
 
-.nav-list__item:first-child {
+.nav-list__item:first-child span{
   color: #f06c64;
 }
 
