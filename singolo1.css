@@ -58,7 +58,7 @@
   color: #ffffff;
 }
 
-.nav-list__item:first-child span{
+.nav-list__item:first-child span {
   color: #f06c64;
 }
 
@@ -68,4 +68,8 @@
 
 .nav-list__item:first-child {
   list-style: none;
+}
+
+.main {
+  z-index: 9;
 }
