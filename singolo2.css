@@ -350,6 +350,8 @@ a {
   font-family: "LatoBlack", Arial, Helvetica, sans-serif;
   font-size: 18px;
   line-height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .person__info {
