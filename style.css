@@ -58,8 +58,10 @@ a {
 }
 
 .container {
-  max-width: 980px;
-  padding: 0 20px;
+  max-width: 1020px;
+  min-width: 1020px;
+  height: 100%;
+  padding: 0 40px;
   margin: 0 auto;
 }
 
@@ -122,4 +124,81 @@ a {
   margin-left: 0;
   margin-right: 5px;
   list-style: none;
+}
+
+.main {
+  z-index: 9;
+}
+
+.slider {
+  height: 600px;
+  background-color: #f06c64;
+  border-bottom: 6px solid #ea676b;
+}
+
+.slider,
+.slider .container {
+  position: relative;
+  width: 100%;
+}
+
+.slider img {
+  position: absolute;
+}
+
+.slider-controls {
+  top: 281px;
+}
+
+.prev {
+  left: 42px;
+}
+
+.next {
+  right: 40px;
+}
+
+.prev:hover, .next:hover{
+  transform: scale(1.2, 1.2);
+  transition: ease-out 550ms;
+  cursor: pointer;
+}
+
+.vertical_shape {
+  transform: rotate(90deg);
+  top: 175px;
+  left: -10px;
+  z-index: 1;
+}
+
+.vertical_base {
+  top: 52px;
+  left: 110px;
+  z-index: 2;
+}
+
+.vertical_screen {
+  top: 115px;
+  left: 123px;
+  z-index: 3;
+}
+
+.horizontal_shape {
+  transform: scale(-1, 1);
+  top: 174px;
+  right: 111px;
+  z-index: 1;
+}
+
+.horizontal_base {
+  transform: rotate(90deg);
+  top: 50px;
+  right: 257px;
+  z-index: 2;
+}
+
+.horizontal_screen {
+  top: 185px;
+  right: 199px;
+  z-index: 3;
 }
