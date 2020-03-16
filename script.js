@@ -17,3 +17,13 @@ function prevDefault(event) {
 })()
 
 SOCIALS_ITEM.addEventListener("click", () => window.prevAction = true, false);
+
+window.onscroll = function showHeader() {
+  const HEADER = document.querySelector(".header");
+  if(window.pageYOffset > 95){
+    HEADER.classList.add("header_fixed");
+  }
+  else{
+    HEADER.classList.remove("header_fixed");
+  }
+}

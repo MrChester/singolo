@@ -72,6 +72,17 @@ a {
   z-index: 10;
 }
 
+.header_fixed{
+  position: sticky;
+  top: 0;
+  left: 0;
+  border-bottom: 0;
+  background-color: rgba(45, 48, 58, 0.8);
+  animation: showElement;
+  animation-duration: 1s;
+  z-index: 1000;
+}
+
 .header .container {
   height: 89px;
   display: flex;
@@ -80,6 +91,15 @@ a {
   text-transform: uppercase;
   color: #ffffff;
 }
+
+.header_fixed .container {
+  height: 60px;
+}
+
+.header_fixed .nav__list{
+  margin-top: 0;
+}
+
 
 .logo-title {
   font-size: 26px;
@@ -891,4 +911,16 @@ a {
 
 .footer-socials__link:hover .footer-socials__icon {
   fill: #f06c64;
+}
+
+@keyframes showElement{
+  0% {
+    opacity: 0;
+    top: -95px;
+  }
+
+  100% {
+    opacity: 1;
+    top: 0;
+  }
 }
