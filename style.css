@@ -739,8 +739,8 @@ a {
   height: 38px;
 }
 
-.input_block:invalid {
-  border: 3px solid #df4c45;
+.input_block:invalid:focus {
+  box-shadow: 0 0 3pt 2pt #df4c45;
 }
 
 .textarea_block {
