@@ -2,12 +2,8 @@ const ANCHOR = document.getElementsByTagName("a"),
   ANCHOR_LENGTH = ANCHOR.length,
   SOCIALS_ITEM = document.querySelector(".socials__item");
 
-window.prevAction = false;
-
 function prevDefault(event) {
-  if (window.prevAction) {
-    event.preventDefault();
-  }
+  event.preventDefault();
 }
 
 (function anchorPrevDefault() {
@@ -16,14 +12,14 @@ function prevDefault(event) {
   }
 })()
 
-SOCIALS_ITEM.addEventListener("click", () => window.prevAction = true, false);
+SOCIALS_ITEM.addEventListener("click", () => window.location = this.href="#", false);
+
 
 window.onscroll = function showHeader() {
   const HEADER = document.querySelector(".header");
-  if(window.pageYOffset > 95){
+  if (window.pageYOffset > 95) {
     HEADER.classList.add("header_fixed");
-  }
-  else{
+  } else {
     HEADER.classList.remove("header_fixed");
   }
 }
