@@ -903,7 +903,8 @@ a {
   line-height: 0;
 }
 
-.footer-socials__link:hover {
+.footer-socials__link:hover,
+.to-top__link:hover {
   border: 1px solid #f06c64;
   transform: scale(1.2, 1.2);
   transition: ease-out 550ms;
@@ -912,6 +913,43 @@ a {
 
 .footer-socials__link:hover .footer-socials__icon {
   fill: #f06c64;
+}
+
+.to-top {
+  position: fixed;
+  bottom: 22px;
+  right: 32px;
+  visibility: hidden;
+}
+
+.to-top__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid rgb(95, 103, 136);
+}
+
+.to-top--show{
+  visibility: visible;
+  z-index: 995;
+}
+
+.to-top__link:hover {
+  border: 1px solid rgb(95, 103, 136);
+}
+
+.to-top__icon {
+  width: 14px;
+  height: 14px;
+  fill: rgb(95, 103, 136);
+}
+
+.to-top__link:hover .to-top__icon {
+  fill: rgb(95, 103, 136);
 }
 
 @keyframes showElement {
