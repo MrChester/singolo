@@ -15,7 +15,7 @@ function prevDefault(event) {
 SOCIALS_ITEM.addEventListener("click", () => window.location = this.href="#", false);
 
 function ready(){
-  window.onscroll = function showHeader() {
+  function showHeader() {
     const HEADER = document.querySelector(".header");
     if (window.pageYOffset > 95) {
       HEADER.classList.add("header_fixed");
@@ -23,6 +23,8 @@ function ready(){
       HEADER.classList.remove("header_fixed");
     }
   }
+
+  document.addEventListener("scroll", showHeader, false);
 }
 
 document.addEventListener("DOMContentLoaded", ready);
