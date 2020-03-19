@@ -45,6 +45,7 @@ html,
 body {
   text-align: justify;
   color: #767e9e;
+  scroll-behavior: smooth;
 }
 
 ul,
@@ -132,10 +133,6 @@ a {
   color: #ffffff;
 }
 
-.nav-list__item:first-child span {
-  color: #f06c64;
-}
-
 .nav-list__item a:hover {
   color: #f06c64;
 }
@@ -144,6 +141,10 @@ a {
   margin-left: 0;
   margin-right: 5px;
   list-style: none;
+}
+
+.nav-list__link.active {
+  color: #f06c64;
 }
 
 .main {
