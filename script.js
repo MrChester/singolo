@@ -6,7 +6,6 @@ function ready() {
   const TO_TOP = document.querySelector(".to-top");
   const NAV_LIST = document.querySelector(".nav__list");
   const NAV_LIST_LINKS = document.querySelectorAll(".nav-list__link");
-  const PORTFOLIO_LIST_LINKS = document.querySelectorAll(".works-section__tags-link");
   const PORTFOLIO_LIST = document.querySelector(".works-section__tags-list");
 
   function showHeader() {
@@ -16,11 +15,6 @@ function ready() {
     } else {
       HEADER.classList.remove("header_fixed");
     }
-  }
-
-  function onSwitching(event) {
-    event.target.classList.add("active")
-    console.log(NAV_LIST_LINKS);
   }
 
   function onScrollTabs() {
@@ -52,12 +46,49 @@ function ready() {
     window.scrollTo(0, 0);
   }
 
+  function switchActiveTab(event) {
+    if (this === PORTFOLIO_LIST) {
+      prevDefault(event);
+    }
+    let siblings = getSiblings(event.target.parentNode);
+    let childs = [];
+    siblings.forEach(function (elem) {
+      elem.childNodes.forEach(function (node) {
+        node.nodeType === 1 && childs.push(node);
+      });
+    });
+
+    childs.forEach(function (child) {
+      child.classList.remove("active");
+    });
+    console.log(event.currentTarget);
+    event.target.classList.add("active");
+  }
+
+  function getSiblings(elem) {
+    let siblings = [];
+    let sibling = elem;
+
+    while (sibling.previousSibling) {
+      sibling = sibling.previousSibling;
+      sibling.nodeType === 1 && siblings.push(sibling);
+    }
+
+    sibling = elem;
+    while (sibling.nextSibling) {
+      sibling = sibling.nextSibling;
+      sibling.nodeType === 1 && siblings.push(sibling);
+    }
+
+    return siblings;
+  }
+
   document.addEventListener("scroll", showHeader, false);
   document.addEventListener("scroll", onScrollTabs, false);
   document.addEventListener("scroll", showToTop, false);
   TO_TOP.addEventListener("click", toTopScroll, false);
-  NAV_LIST.addEventListener("click", onSwitching, false);
-  PORTFOLIO_LIST.addEventListener("click", onSwitching, false);
+  NAV_LIST.addEventListener("click", switchActiveTab, false);
+  PORTFOLIO_LIST.addEventListener("click", switchActiveTab, false);
 }
 
 document.addEventListener("DOMContentLoaded", ready);
