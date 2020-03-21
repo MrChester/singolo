@@ -7,7 +7,9 @@ function ready() {
   const NAV_LIST = document.querySelector(".nav__list");
   const NAV_LIST_LINKS = document.querySelectorAll(".nav-list__link");
   const PORTFOLIO_LIST = document.querySelector(".works-section__tags-list");
+  const PORTFOLIO_LIST_LINKS = document.querySelectorAll(".works-section__tags-link");
   const PORTFOLIO_IMAGES = document.querySelectorAll(".works-gallery__item");
+  let clicked = false;
 
   function showHeader() {
     const HEADER = document.querySelector(".header");
@@ -43,15 +45,23 @@ function ready() {
   }
 
   function toTopScroll() {
-    console.log("It's woks");
     window.scrollTo(0, 0);
   }
 
   function switchActiveTab(event) {
+
     if (this === PORTFOLIO_LIST) {
       prevDefault(event);
-      showRandomImages();
+      if (!clicked && !event.target.classList.contains("disabled") || !event.target.classList.contains("disabled")) {
+        event.target.classList.add("disabled");
+        showRandomImages();
+        clicked = true;
+      } else {
+        clicked = false;
+      }
+
     }
+
     let siblings = getSiblings(event.target.parentNode);
     let childs = [];
     siblings.forEach(function (elem) {
@@ -61,9 +71,11 @@ function ready() {
     });
 
     childs.forEach(function (child) {
-      child.classList.remove("active");
+      child.classList.remove("active", "disabled");
     });
-    console.log(event.currentTarget);
+
+
+
     event.target.classList.add("active");
   }
 
