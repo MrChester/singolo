@@ -11,6 +11,8 @@ function ready() {
   const PORTFOLIO_IMAGES = document.querySelectorAll(".works-gallery__item");
   let clicked = false;
 
+  initSlider();
+
   function showHeader() {
     const HEADER = document.querySelector(".header");
     if (window.pageYOffset > 95) {
@@ -113,6 +115,74 @@ function ready() {
   TO_TOP.addEventListener("click", toTopScroll, false);
   NAV_LIST.addEventListener("click", switchActiveTab, false);
   PORTFOLIO_LIST.addEventListener("click", switchActiveTab, false);
+}
+
+function initSlider() {
+  const sliderItems = document.querySelectorAll(".slider__item");
+  const sliderControlIcons = document.querySelectorAll(".slider__control-icon")
+  const leftControl = document.querySelector(".slider__control.prev");
+  const rightControl = document.querySelector(".slider__control.next");
+  let currentItem = 0;
+  let isEnabled = true;
+
+  leftControl.addEventListener("click", function (event) {
+    prevDefault(event);
+    if (isEnabled) {
+      previousItem(currentItem);
+    }
+  });
+
+  rightControl.addEventListener("click", function (event) {
+    prevDefault(event);
+    if (isEnabled) {
+      nextItem(currentItem);
+    }
+  });
+
+  function changeIconsColor(event) {
+    let svgIcon = event.currentTarget.childNodes[1];
+    if (svgIcon.classList.contains("red")) {
+      sliderControlIcons.forEach((e) => e.classList.remove("red"));
+      sliderControlIcons.forEach((e) => e.classList.add("blue"));
+    } else {
+      sliderControlIcons.forEach((e) => e.classList.remove("blue"));
+      sliderControlIcons.forEach((e) => e.classList.add("red"));
+    }
+  }
+
+  function changeCurrentItem(n) {
+    return currentItem = (n + sliderItems.length) % sliderItems.length;
+  }
+
+  function hideItem(direction) {
+    isEnabled = false;
+    sliderItems[currentItem].classList.add(direction);
+    sliderItems[currentItem].addEventListener("animationend", function () {
+      this.classList.remove("active", direction);
+    });
+  }
+
+  function showItem(direction, event) {
+    changeIconsColor(event);
+    sliderItems[currentItem].classList.add("next", direction);
+    sliderItems[currentItem].addEventListener("animationend", function () {
+      this.classList.remove("next", direction);
+      this.classList.add("active");
+      isEnabled = true;
+    });
+  }
+
+  function previousItem(n) {
+    hideItem("to-right", event);
+    changeCurrentItem(n - 1);
+    showItem("from-left", event);
+  }
+
+  function nextItem(n) {
+    hideItem("to-left", event);
+    changeCurrentItem(n + 1)
+    showItem("from-right", event);
+  }
 }
 
 document.addEventListener("DOMContentLoaded", ready);
