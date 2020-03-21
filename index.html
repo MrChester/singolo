@@ -37,11 +37,11 @@
       </div>
     </header>
     <main class="main">
-      <section id="home" class="slider-section slider-section_bg_border">
-        <div class="container">
-          <div class="slider">
-            <div class="slider__wrapper">
-              <div class="slider__item">
+      <section id="home" class="slider-section bg border">
+        <div class="slider">
+          <div class="slider__wrapper">
+            <div class="slider__item">
+              <div class="container">
                 <img src="./assets/img/slider/slide1/screen-vertical.png" alt="" class="vertical_screen">
                 <img src="./assets/img/slider/slide1/phone-vertical.png" alt="" class="vertical_base">
                 <img src="./assets/img/slider/slide1/shadow-vertical.png" alt="" class="vertical_shape">
@@ -49,8 +49,9 @@
                 <img src="./assets/img/slider/slide1/phone-vertical.png" alt="" class="horizontal_base">
                 <img src="./assets/img/slider/slide1/shadow-vertical.png" alt="" class="horizontal_shape">
               </div>
-              <div class="slider__item active slider__item_bg">
-                <div class="slider__item-wrapper">
+            </div>
+            <div class="slider__item blue active">
+                <div class="container">
                   <figure class="phone__wrapper">
                     <img src="./assets/img/slider/slide2/phone-vertical-shadow-lg.png" alt="" class="shape_lg">
                     <img src="./assets/img/slider/slide2/phone-vertical_lg.png" alt="" class="base_lg">
@@ -71,18 +72,21 @@
                       class="screen_md screen_md_right">
                   </figure>
                 </div>
-              </div>
             </div>
-            <a href="#" class="slider__control slider__control_left">
-              <svg class="slider__control-icon control__icon_color">
-                <use xlink:href="./assets/img/icon/icons-sprite.svg#icons--prev"></use>
-              </svg>
-            </a>
-            <a href="#" class="slider__control slider__control_right">
-              <svg class="slider__control-icon control__icon_color">
-                <use xlink:href="./assets/img/icon/icons-sprite.svg#icons--next"></use>
-              </svg>
-            </a>
+          </div>
+          <div class="slider-controls__wrapper">
+            <div class="container">
+              <a href="#" class="slider__control prev">
+                <svg class="slider__control-icon control__icon_color">
+                  <use xlink:href="./assets/img/icon/icons-sprite.svg#icons--prev"></use>
+                </svg>
+              </a>
+              <a href="#" class="slider__control next">
+                <svg class="slider__control-icon control__icon_color">
+                  <use xlink:href="./assets/img/icon/icons-sprite.svg#icons--next"></use>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
       </section>
