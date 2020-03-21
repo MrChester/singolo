@@ -153,16 +153,6 @@ a {
 
 .slider-section {
   height: 600px;
-  background-color: #f06c64;
-  border-bottom: 6px solid #ea676b;
-}
-
-.slider-section.bg {
-  background-color: #648BF0;
-}
-
-.slider-section.border {
-  border-bottom: 6px solid #6082d8;
 }
 
 .slider,
@@ -189,16 +179,53 @@ a {
   flex: 0 0 100%;
   min-width: 100%;
 }
+
+.slider__item.blue {
+  background-color: #648BF0;
+  border-bottom: 6px solid #6082d8;
+}
+
+.slider__item.red {
+  background-color: #f06c64;
+  border-bottom: 6px solid #ea676b;
+}
+
 .slider__item .container {
   position: relative;
 }
 
 .slider__item {
   display: none;
+  animation: 0.5s ease-in-out;
 }
 
-.slider__item.active {
+.slider__item.active,
+.slider__item.next {
   display: block;
+}
+
+.slider__item.next {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.to-left {
+  animation-name: left;
+}
+
+.from-right {
+  animation-name: right;
+}
+
+.to-right {
+  animation-name: right;
+  animation-direction: reverse;
+}
+
+.from-left {
+  animation-name: left;
+  animation-direction: reverse;
 }
 
 .phone__wrapper {
@@ -219,11 +246,6 @@ a {
 .slider__control {
   position: absolute;
   top: 279px;
-}
-
-.control__icon_color {
-  fill: #5c75b5 !important;
-  transition: ease-out 550ms;
 }
 
 .slider-controls__wrapper .container{
@@ -249,6 +271,11 @@ a {
   transition: ease-out 550ms;
 }
 
+.slider__control-icon.blue {
+  fill: #5c75b5 !important;
+  transition: ease-out 550ms;
+}
+
 .slider__control.prev {
   left: 36px;
 }
@@ -263,7 +290,7 @@ a {
   cursor: pointer;
 }
 
-.control__icon_color:hover {
+.slider__control-icon.blue:hover {
   fill: #3e5694 !important;
   transition: ease-out 550ms;
   cursor: pointer;
@@ -1100,5 +1127,23 @@ a {
   100% {
     opacity: 1;
     top: 0;
+  }
+}
+
+@keyframes left {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes right {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
   }
 }
