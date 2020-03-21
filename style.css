@@ -248,7 +248,7 @@ a {
   top: 279px;
 }
 
-.slider-controls__wrapper .container{
+.slider-controls__wrapper .container {
   position: relative;
 }
 
@@ -344,7 +344,7 @@ a {
   z-index: 11;
 }
 
-.shape_lg{
+.shape_lg {
   z-index: 10;
 }
 
@@ -550,6 +550,10 @@ a {
   background: #2d303a;
 }
 
+.works-section__tags-link::selection {
+  background-color: transparent;
+}
+
 .works-section__tags-link.margin {
   padding: 2px 6px;
 }
@@ -559,6 +563,12 @@ a {
   border: 1px solid #c5c5c5;
 
   color: #c5c5c5
+}
+
+.works-section__tags-link.disabled {
+  pointer-events: none;
+  cursor: default;
+  color: #888;
 }
 
 @supports not (display: grid) {
@@ -1134,6 +1144,7 @@ a {
   from {
     left: 0;
   }
+
   to {
     left: -100%;
   }
@@ -1143,6 +1154,7 @@ a {
   from {
     left: 100%;
   }
+
   to {
     left: 0;
   }
