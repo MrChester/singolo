@@ -7,6 +7,7 @@ function ready() {
   const NAV_LIST = document.querySelector(".nav__list");
   const NAV_LIST_LINKS = document.querySelectorAll(".nav-list__link");
   const PORTFOLIO_LIST = document.querySelector(".works-section__tags-list");
+  const PORTFOLIO_IMAGES = document.querySelectorAll(".works-gallery__item");
 
   function showHeader() {
     const HEADER = document.querySelector(".header");
@@ -49,6 +50,7 @@ function ready() {
   function switchActiveTab(event) {
     if (this === PORTFOLIO_LIST) {
       prevDefault(event);
+      showRandomImages();
     }
     let siblings = getSiblings(event.target.parentNode);
     let childs = [];
@@ -63,6 +65,16 @@ function ready() {
     });
     console.log(event.currentTarget);
     event.target.classList.add("active");
+  }
+
+  function showRandomImages() {
+    const mixRand = (a, b) => Math.random() - 0.5;
+    let arrImg = Array.from(PORTFOLIO_IMAGES),
+      arrImgSrcMix = arrImg.map(e => e.classList[1]).sort(mixRand);
+    arrImg.map(function (e, i) {
+      e.classList.remove(e.classList[1]);
+      e.classList.add(arrImgSrcMix[i]);
+    });
   }
 
   function getSiblings(elem) {
