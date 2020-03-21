@@ -1,18 +1,6 @@
-const ANCHOR = document.getElementsByTagName("a"),
-  ANCHOR_LENGTH = ANCHOR.length,
-  SOCIALS_ITEM = document.querySelector(".socials__item");
-
 function prevDefault(event) {
   event.preventDefault();
 }
-
-(function anchorPrevDefault() {
-  for (let i = 0; i < ANCHOR_LENGTH; i++) {
-    ANCHOR[i].addEventListener("click", prevDefault, false);
-  }
-})()
-
-SOCIALS_ITEM.addEventListener("click", () => window.location = this.href = "#", false);
 
 function ready() {
   const TO_TOP = document.querySelector(".to-top");
@@ -28,15 +16,6 @@ function ready() {
     } else {
       HEADER.classList.remove("header_fixed");
     }
-  }
-
-  function offActive(){
-    NAV_LIST_LINKS.forEach((el) => {
-      el.classList.remove("active");
-    });
-    PORTFOLIO_LIST.forEach((el) => {
-      el.classList.remove("active");
-    });
   }
 
   function onSwitching(event) {
