@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", ready);
+
 function prevDefault(event) {
   event.preventDefault();
 }
@@ -10,6 +12,13 @@ function ready() {
   const PORTFOLIO_LIST_LINKS = document.querySelectorAll(".works-section__tags-link");
   const PORTFOLIO_IMAGES = document.querySelectorAll(".works-gallery__item");
   let clicked = false;
+
+  document.addEventListener("scroll", showHeader, false);
+  document.addEventListener("scroll", onScrollTabs, false);
+  document.addEventListener("scroll", showToTop, false);
+  TO_TOP.addEventListener("click", toTopScroll, false);
+  NAV_LIST.addEventListener("click", switchActiveTab, false);
+  PORTFOLIO_LIST.addEventListener("click", switchActiveTab, false);
 
   initSlider();
 
@@ -108,13 +117,6 @@ function ready() {
 
     return siblings;
   }
-
-  document.addEventListener("scroll", showHeader, false);
-  document.addEventListener("scroll", onScrollTabs, false);
-  document.addEventListener("scroll", showToTop, false);
-  TO_TOP.addEventListener("click", toTopScroll, false);
-  NAV_LIST.addEventListener("click", switchActiveTab, false);
-  PORTFOLIO_LIST.addEventListener("click", switchActiveTab, false);
 }
 
 function initSlider() {
@@ -184,5 +186,3 @@ function initSlider() {
     showItem("from-right", event);
   }
 }
-
-document.addEventListener("DOMContentLoaded", ready);
